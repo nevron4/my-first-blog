@@ -25,7 +25,7 @@ SECRET_KEY = '89wc)_%k%h0_qhei+ogqs-ww&sv%39h1vauv)8+pqfz1$h(@$8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nevron.pythonanywhere.com']
 
 
 # Application definition
