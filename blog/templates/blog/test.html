@@ -5,10 +5,11 @@
 			<div class="row">
 				<div class="col-md-6">
 				<div class="well"> 
-				  <form name="pyform" method="POST" action="">
+				  <form name="pyform" method="POST" action="">{% csrf_token %}
 				   Search similar words for:
-					<div class="input-group">               
-					  <input type="text" class="form-control" name="input" placeholder="One word">
+					<div class="input-group">  
+             
+					  <input type="text" class="form-control" id="id_textin" name="textin" placeholder="One word">
 					  <span class="input-group-btn">
 						<button class="btn btn-warning" type="submit">Search similar</button>
 					  </span>
@@ -21,13 +22,10 @@
 				</div>          
 				<div class="col-md-6"> 
 				  <div class="well">            
-					    <form method="POST" class="post-form">{% csrf_token %}
-				        {{ sendform }}
-				        <button type="submit" class="save btn btn-default">Save</button>
-				    </form>
 
 				  </div>                   
 				</div>
 			</div>
+
 
 {% endblock %}

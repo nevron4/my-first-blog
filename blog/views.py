@@ -31,7 +31,7 @@ def post_new(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def test(request):
-    sendform = TestForm1()
+    sendform = TestForm1(auto_id=False)
     return render(request, 'blog/test.html', {'sendform': sendform})
 
 def test(request):
