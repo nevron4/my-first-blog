@@ -4,7 +4,6 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm, TestForm1
 from django.shortcuts import redirect
-import socket
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -36,18 +35,10 @@ def test(request):
     return render(request, 'blog/test.html', {'sendform': sendform})
 
 def test(request):
-    textin = ''
     if request.method == "POST":
         sendform = TestForm1(request.POST)
         if sendform.is_valid():
             textin = sendform.cleaned_data['textin']
-            s = socket.socket()         # Create a socket object
-            host = "87.97.140.221"      # Get local machine name
-            port = 50055                # Reserve a port for your service.
-            s.connect((host, port))
-            s.send(textin)
-            category = s.recv(1024)        # 1024 kolko sinvola
-            s.close
             print textin
             return redirect('test')
     else:
